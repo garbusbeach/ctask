@@ -1,4 +1,4 @@
-# Claude worktree task launcher 🐿️
+# Claude worktree task launcher
 # Usage:
 #   ctask new <name>    — create worktree + open VS Code
 #   ctask branch        — push current worktree branch to remote
