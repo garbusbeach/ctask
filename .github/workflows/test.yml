@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04  # kcov is in apt on 22.04; not available on 24.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -16,21 +16,10 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y zsh kcov
+          sudo apt-get install -y zsh
 
       - name: Install bats-core
         uses: bats-core/bats-action@2.0.0
 
-      - name: Run tests with coverage
-        run: |
-          kcov \
-            --include-path=ctask.sh \
-            --bash-method=DEBUG \
-            coverage \
-            bats tests/ctask.bats
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          directory: coverage
-          fail_ci_if_error: false
+      - name: Run tests
+        run: bats tests/ctask.bats

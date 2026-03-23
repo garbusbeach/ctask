@@ -14,10 +14,10 @@
 ### One-liner (recommended)
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/garbusbeach/ctask/refs/heads/master/install.sh | bash
+curl -fsSL https://garbusbeach.com/ctask.sh | bash
 ```
 
-The installer downloads `ctask.sh` to `~/.ctask.sh` and adds one line to your shell config:
+The installer (`install.sh`) downloads `ctask.sh` to `~/.ctask.sh` and adds one line to your shell config:
 
 ```sh
 source "$HOME/.ctask.sh"  # >>> ctask <<<
@@ -50,6 +50,8 @@ ctask branch                      push current worktree branch to remote
 ctask pr                          push branch + open GitHub PR in browser
 ctask join                        merge worktree into main + cleanup
 ctask clean [name]                remove worktree + close VS Code window
+ctask version                     show installed version
+ctask update                      update to latest version
 ctask help                        show help
 ```
 

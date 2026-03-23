@@ -4,6 +4,13 @@
 #   ctask branch        — push current worktree branch to remote
 #   ctask pr            — push + open GitHub PR in browser
 #   ctask join          — merge worktree into main + cleanup
+#   ctask version       — print installed version
+#   ctask update        — update to latest version
+
+# Injected by installer — do not edit manually
+CTASK_VERSION=""
+CTASK_BASE_URL=""
+
 ctask() {
   local ORANGE='\033[38;2;217;119;87m'
   local RESET='\033[0m'
@@ -260,6 +267,32 @@ EOF
       echo "${ORANGE}   branch '${branch}' deleted${RESET}"
       ;;
 
+    version)
+      echo "${ORANGE}🐿️  ctask ${CTASK_VERSION}${RESET}"
+      ;;
+
+    update)
+      if [[ -z "$CTASK_BASE_URL" ]]; then
+        echo "${ORANGE}Error: CTASK_BASE_URL not set — re-run the installer${RESET}"
+        return 1
+      fi
+
+      local remote_version
+      remote_version=$(curl -fsSL "${CTASK_BASE_URL}/VERSION.md" 2>/dev/null | tr -d '[:space:]') || {
+        echo "${ORANGE}Error: could not reach ${CTASK_BASE_URL}/VERSION.md${RESET}"
+        return 1
+      }
+
+      if [[ "$remote_version" == "$CTASK_VERSION" ]]; then
+        echo "${ORANGE}🐿️  Already up to date (${CTASK_VERSION})${RESET}"
+        return 0
+      fi
+
+      echo "${ORANGE}🐿️  Updating ${CTASK_VERSION} → ${remote_version}...${RESET}"
+      bash <(curl -fsSL "${CTASK_BASE_URL}/install.sh") --force
+      echo "${ORANGE}   Updated! Run: source ~/.ctask.sh${RESET}"
+      ;;
+
     help|*)
       echo ""
       echo "${ORANGE}🐿️  ctask — Claude worktree task launcher${RESET}"
@@ -271,6 +304,8 @@ EOF
       echo "  ${ORANGE}ctask pr${RESET}           push branch + open GitHub PR in browser"
       echo "  ${ORANGE}ctask join${RESET}         merge worktree into main + cleanup"
       echo "  ${ORANGE}ctask clean [name]${RESET} remove worktree + close VS Code window"
+      echo "  ${ORANGE}ctask version${RESET}      show installed version"
+      echo "  ${ORANGE}ctask update${RESET}       update to latest version"
       echo "  ${ORANGE}ctask help${RESET}         show this help"
       echo ""
       ;;
