@@ -17,13 +17,16 @@
 curl -fsSL https://garbusbeach.com/ctask.sh | bash
 ```
 
+And that's all.
+
+
 The installer (`install.sh`) downloads `ctask.sh` to `~/.ctask.sh` and adds one line to your shell config:
 
 ```sh
 source "$HOME/.ctask.sh"  # >>> ctask <<<
 ```
 
-Activate in your current session:
+Activate in your current session: (after install)
 
 ```sh
 source ~/.ctask.sh
