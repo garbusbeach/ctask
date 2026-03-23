@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # ctask installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/garbus-beach/ctask/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/garbus-beach/ctask/master/install.sh | bash
 
 set -e
 
 ORANGE='\033[38;2;217;119;87m'
 RESET='\033[0m'
 
-CTASK_URL="https://raw.githubusercontent.com/garbus-beach/ctask/main/ctask.sh"
+CTASK_URL="https://raw.githubusercontent.com/garbus-beach/ctask/master/ctask.sh"
 CTASK_FILE="$HOME/.ctask.sh"
 SOURCE_LINE="source \"\$HOME/.ctask.sh\"  # >>> ctask <<<"
 
