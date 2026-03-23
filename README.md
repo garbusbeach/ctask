@@ -5,7 +5,7 @@
 
 # ctask 🐿️
 
-[![Tests](https://github.com/garbus-beach/ctask/actions/workflows/test.yml/badge.svg)](https://github.com/garbus-beach/ctask/actions/workflows/test.yml)
+[![Tests](https://github.com/garbusbeach/ctask/actions/workflows/test.yml/badge.svg)](https://github.com/garbusbeach/ctask/actions/workflows/test.yml)
 
 🐿️ Claude worktree task launcher. Spins up isolated git worktrees for parallel Claude Code tasks, each with a color-coded VS Code status bar and title bar so you always know which window you're in.
 
@@ -14,7 +14,7 @@
 ### One-liner (recommended)
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/garbus-beach/ctask/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/garbusbeach/ctask/refs/heads/master/install.sh | bash
 ```
 
 The installer downloads `ctask.sh` to `~/.ctask.sh` and adds one line to your shell config:
@@ -34,7 +34,7 @@ To update ctask later, just re-run the install command — it overwrites `~/.cta
 ### Manual
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/garbus-beach/ctask/master/ctask.sh -o ~/.ctask.sh
+curl -fsSL https://raw.githubusercontent.com/garbusbeach/ctask/refs/heads/master/ctask.sh -o ~/.ctask.sh
 echo 'source "$HOME/.ctask.sh"  # >>> ctask <<<' >> ~/.zshrc
 source ~/.ctask.sh
 ```
