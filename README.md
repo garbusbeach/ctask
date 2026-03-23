@@ -1,6 +1,14 @@
-# ctask
+<p align="center">
+  <img src="img/claude.svg" width="72" alt="Claude"/>
+  <img src="img/vscode.svg" width="72" alt="VS-Code"/>
+</p>
 
-Claude worktree task launcher. Spins up isolated git worktrees for parallel Claude Code tasks, each with a color-coded VS Code status bar and title bar so you always know which window you're in.
+# ctask 🐿️
+
+[![Tests](https://github.com/garbus-beach/ctask/actions/workflows/test.yml/badge.svg)](https://github.com/garbus-beach/ctask/actions/workflows/test.yml)
+[![Coverage](https://codecov.io/gh/garbus-beach/ctask/branch/main/graph/badge.svg)](https://codecov.io/gh/garbus-beach/ctask)
+
+🐿️ Claude worktree task launcher. Spins up isolated git worktrees for parallel Claude Code tasks, each with a color-coded VS Code status bar and title bar so you always know which window you're in.
 
 ## Install
 
@@ -77,7 +85,7 @@ Worktrees are created at `<repo-root>/.claude/worktrees/<name>` on branch `workt
 
 | Flag | Color |
 |------|-------|
-| *(none)* | Claude orange `#D97757` |
+| *(none)* | Claude orange <span style="background:#D97757; color: #fff; padding: 2px 4px; border-radius: 2px;">#D97757</span> |
 | `--color` | Random color |
 | `--color #RRGGBB` | Your hex value |
 
